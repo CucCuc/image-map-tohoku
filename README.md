@@ -15,12 +15,12 @@ npm install --save image-map-tohoku
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'image-map-tohoku'
+import ImageMapTohoku from 'image-map-tohoku'
 import 'image-map-tohoku/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <ImageMapTohoku />
   }
 }
 ```
