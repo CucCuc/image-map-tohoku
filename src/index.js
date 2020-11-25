@@ -469,26 +469,25 @@ export default function ImageMapTohoku() {
   const { areas } = useImageMapResponsive(MAP.areas, IMAGE_WIDTH)
   const [hoveredArea, setHoveredArea] = useState(null)
   return (
-    <div style={{ position: "relative" }}>
-
-    <ImageMapper
-      src={URL}
-      fillColor='rgba(0, 0, 0, 0.2)'
-      map={{ ...MAP, areas: areas || MAP.areas }}
-      width={width}
-      onMouseEnter={(area) => setHoveredArea(area)}
-      onMouseLeave={() => setHoveredArea(null)}
-    />
-    {hoveredArea && (
-              <div
-              className={styles.tooltip}
-    style={getTipPosition(hoveredArea)}>
-      <img height={80} src='https://japaneast1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=png&cs=fFNQTw&docid=https%3A%2F%2Fskyace.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!xYO_mk_WfEKPmR70JDqzsw6hxdSOm1VGrVcrhFYPlZj7OeH58rxDRYpH44vvY_q7%2Fitems%2F01CPZLCDM725CNYDLEX5FZKP56JSD3TKQI%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvc2t5YWNlLnNoYXJlcG9pbnQuY29tQGNhYzViNzIyLWFkMjYtNDk0ZC1hODcxLTg1MzU2YjAxYjYxYyIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMCIsIm5iZiI6IjE2MDYxODY4MDAiLCJleHAiOiIxNjA2MjA4NDAwIiwiZW5kcG9pbnR1cmwiOiJSanNCQnl3UDJ1R3VFQ29MbjZZRVk0dkdndVZNbDQya2JBODh3MSs3OW1FPSIsImVuZHBvaW50dXJsTGVuZ3RoIjoiMTEzIiwiaXNsb29wYmFjayI6IlRydWUiLCJ2ZXIiOiJoYXNoZWRwcm9vZnRva2VuIiwic2l0ZWlkIjoiT1dGaVpqZ3pZelV0WkRZMFppMDBNamRqTFRobU9Ua3RNV1ZtTkRJME0yRmlNMkl6Iiwic2lnbmluX3N0YXRlIjoiW1wia21zaVwiXSIsIm5hbWVpZCI6IjAjLmZ8bWVtYmVyc2hpcHxoYWlfdGdsLXNvbC5jb20jZXh0I0Bza3lhY2Uub25taWNyb3NvZnQuY29tIiwibmlpIjoibWljcm9zb2Z0LnNoYXJlcG9pbnQiLCJpc3VzZXIiOiJ0cnVlIiwiY2FjaGVrZXkiOiIwaC5mfG1lbWJlcnNoaXB8MTAwMzIwMDA1MzFiMjE3YUBsaXZlLmNvbSIsInR0IjoiMCIsInVzZVBlcnNpc3RlbnRDb29raWUiOiIzIn0.a3dWOEJNZXlJVlZSZWFzTGQ2SE1DcDRoWjZKU2ZkV3c4TFM5K2xLcVovbz0&encodeFailures=1&srcWidth=&srcHeight=&width=310&height=163&action=Preview'/>
-      {hoveredArea.name}
-    
-    
+    <div style={{ position: 'relative' }}>
+      <ImageMapper
+        src={URL}
+        fillColor='rgba(0, 0, 0, 0.2)'
+        map={{ ...MAP, areas: areas || MAP.areas }}
+        width={width}
+        onMouseEnter={(area) => setHoveredArea(area)}
+        onMouseLeave={() => setHoveredArea(null)}
+        onClick={(area) => {window.open('https://www.npmjs.com/package/image-map-tohoku')}}
+      />
+      {hoveredArea && (
+        <div className={styles.tooltip} style={getTipPosition(hoveredArea)}>
+          <img
+            height={80}
+            src='https://japaneast1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=png&cs=fFNQTw&docid=https%3A%2F%2Fskyace.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!xYO_mk_WfEKPmR70JDqzsw6hxdSOm1VGrVcrhFYPlZj7OeH58rxDRYpH44vvY_q7%2Fitems%2F01CPZLCDM725CNYDLEX5FZKP56JSD3TKQI%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvc2t5YWNlLnNoYXJlcG9pbnQuY29tQGNhYzViNzIyLWFkMjYtNDk0ZC1hODcxLTg1MzU2YjAxYjYxYyIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMCIsIm5iZiI6IjE2MDYxODY4MDAiLCJleHAiOiIxNjA2MjA4NDAwIiwiZW5kcG9pbnR1cmwiOiJSanNCQnl3UDJ1R3VFQ29MbjZZRVk0dkdndVZNbDQya2JBODh3MSs3OW1FPSIsImVuZHBvaW50dXJsTGVuZ3RoIjoiMTEzIiwiaXNsb29wYmFjayI6IlRydWUiLCJ2ZXIiOiJoYXNoZWRwcm9vZnRva2VuIiwic2l0ZWlkIjoiT1dGaVpqZ3pZelV0WkRZMFppMDBNamRqTFRobU9Ua3RNV1ZtTkRJME0yRmlNMkl6Iiwic2lnbmluX3N0YXRlIjoiW1wia21zaVwiXSIsIm5hbWVpZCI6IjAjLmZ8bWVtYmVyc2hpcHxoYWlfdGdsLXNvbC5jb20jZXh0I0Bza3lhY2Uub25taWNyb3NvZnQuY29tIiwibmlpIjoibWljcm9zb2Z0LnNoYXJlcG9pbnQiLCJpc3VzZXIiOiJ0cnVlIiwiY2FjaGVrZXkiOiIwaC5mfG1lbWJlcnNoaXB8MTAwMzIwMDA1MzFiMjE3YUBsaXZlLmNvbSIsInR0IjoiMCIsInVzZVBlcnNpc3RlbnRDb29raWUiOiIzIn0.a3dWOEJNZXlJVlZSZWFzTGQ2SE1DcDRoWjZKU2ZkV3c4TFM5K2xLcVovbz0&encodeFailures=1&srcWidth=&srcHeight=&width=310&height=163&action=Preview'
+          />
+          {hoveredArea.name}
+        </div>
+      )}
     </div>
-            )}
-    </div>
-  );
+  )
 }
