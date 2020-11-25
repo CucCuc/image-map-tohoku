@@ -475,9 +475,12 @@ export default function ImageMapTohoku() {
         fillColor='rgba(0, 0, 0, 0.2)'
         map={{ ...MAP, areas: areas || MAP.areas }}
         width={width}
-        onMouseEnter={(area) => setHoveredArea(area)}
-        onMouseLeave={() => setHoveredArea(null)}
-        onClick={(area) => {window.open('https://www.npmjs.com/package/image-map-tohoku')}}
+        // onMouseEnter={(area) => setHoveredArea(area)}
+        onClick={(area) => setHoveredArea(area)}
+        onImageClick={() => setHoveredArea(null)}
+        // onClick={(area) => {
+        //   window.open('https://www.npmjs.com/package/image-map-tohoku')
+        // }}
       />
       {hoveredArea && (
         <div className={styles.tooltip} style={getTipPosition(hoveredArea)}>
