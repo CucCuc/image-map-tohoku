@@ -289,7 +289,6 @@ export default function ImageMapTohoku() {
               </div>
 
               <h5>ちばく てんせい</h5>
-              <p className='description'>和職両自ヲタメ首伴飯ぎべ</p>
               <div className={styles.link}>➥ アクセスデモ</div>
             </div>
           </a>
