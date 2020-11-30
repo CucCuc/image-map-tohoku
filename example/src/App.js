@@ -733,7 +733,6 @@ const App = () => {
       imageUrl={URL}
       imageWidth={IMAGE_WIDTH}
       imageMap={MAP}
-      onClick=''
       text='Create React Library Example 😄'
     />
   )
