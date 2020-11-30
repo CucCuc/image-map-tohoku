@@ -239,14 +239,23 @@ const MAP = {
 }
 
 const getTipPosition = (area) => {
-  return { top: `${area.center[1] - 50}px`, left: `${area.center[0]}px` }
+  return { top: `${area.center[1]}px`, left: `${area.center[0]}px` }
 }
 
 export default function ImageMapTohoku() {
   const { width } = useWindowSize()
   const { areas } = useImageMapResponsive(MAP.areas, IMAGE_WIDTH)
   const [hoveredArea, setHoveredArea] = useState(null)
-  const [toolTipVisible, setToolTipVisible] = useState(false)
+
+  const getToolTip = () => {
+    if (hoveredArea.center[0] < 150) {
+      return styles.tooltipRight
+    } else if (hoveredArea.center[1] < 525) {
+      return styles.tooltipBottom
+    } else {
+      return styles.tooltipDefault
+    }
+  }
   return (
     <div style={{ position: 'relative' }}>
       <ImageMapper
@@ -254,39 +263,34 @@ export default function ImageMapTohoku() {
         fillColor='rgba(0, 0, 0, 0.2)'
         map={{ ...MAP, areas: areas || MAP.areas }}
         width={width}
-        // onMouseEnter={(area) => setHoveredArea(area)}
         onClick={(area) => {
           setHoveredArea(area)
-          setToolTipVisible(true)
         }}
-        onImageClick={() => {
+        onImageClick={(event) => {
           setHoveredArea(null)
-          setToolTipVisible(false)
         }}
-        // onClick={(area) => {
-        //   window.open('https://www.npmjs.com/package/image-map-tohoku')
-        // }}
       />
       {hoveredArea && (
         <div
-          className={styles.tooltip}
+          className={styles.tooltip + ' ' + getToolTip()}
           style={{ ...getTipPosition(hoveredArea) }}
-          onClick={() => window.location('http://google.com.vn')}
         >
-          <a className={styles.tooltipContent} href='http://google.com.vn'>
+          <a
+            className={styles.tooltipContent}
+            href='https://v-messe.jp/hat/mirai2020chubu/26/index.html'
+          >
             <div>
               <div className={styles.tooltipImageWrapper}>
                 <img
-                  style={{ width: '100%' }}
+                  style={{ width: '75px' }}
                   className='maker-logo'
                   src='https://chubu-mirai-images.s3.amazonaws.com/1604651044401_el4mwtnfxl/04.png'
                 />
               </div>
 
-              <h3>Maker name</h3>
+              <h5>ちばく てんせい</h5>
               <p className='description'>和職両自ヲタメ首伴飯ぎべ</p>
-
-              <div>➥ Go to the link</div>
+              <div className={styles.link}>➥ アクセスデモ</div>
             </div>
           </a>
         </div>
