@@ -46,15 +46,19 @@ export default function ImageMapTohoku(props) {
           <a className={styles.tooltipContent} href={hoveredArea.info.link}>
             <div>
               <div className={styles.tooltipImageWrapper}>
+                {hoveredArea.info.cornerName ? 
+                <h5>{hoveredArea.info.cornerName}</h5>
+                :
                 <img
-                  style={{ width: '75px' }}
-                  className='maker-logo'
-                  src={hoveredArea.info.logoUrl}
+                style={{ width: '75px' }}
+                className='maker-logo'
+                src={hoveredArea.info.logoUrl}
                 />
+                }
               </div>
 
               <h5>{hoveredArea.info.heading}</h5>
-              <div className={styles.link}>➥ アクセスデモ</div>
+              <div className={styles.link}>動画コーナーへ→</div>
             </div>
           </a>
         </div>

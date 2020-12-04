@@ -6,6 +6,7 @@
   z-index: 1000;
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
+  height: 70px;
   line-height: 1.5em;
   width: 400px;
   max-width: 170px;
@@ -79,7 +80,10 @@
 .tooltipImageWrapper .img {
   width: 100%;
 }
-
+.tooltipImageWrapper .h5 {
+  width: 100%;
+  height: 20px;
+}
 .tooltip text, .tooltipRight {
   margin: 0.2rem;
 }
@@ -107,9 +111,10 @@
 .tooltip .link {
   text-align: right;
   font-weight: 800;
-  color: #A9A9A9;
-  margin-top: 15px;
-  font-size: 14px;
+  color:blue;
+  text-decoration: underline; 
+  margin-top: 2px;
+  font-size: 10px;
 }
 
 
