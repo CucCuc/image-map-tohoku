@@ -1,6 +1,6 @@
 {
   "name": "image-map-tohoku",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "author": "",
   "license": "MIT",
@@ -54,6 +54,7 @@
     "dist"
   ],
   "dependencies": {
+    "react-device-detect": "^1.14.0",
     "react-image-mapper": "^0.0.15"
   },
   "directories": {

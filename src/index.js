@@ -10,7 +10,12 @@ const getTipPosition = (area) => {
 }
 
 export default function ImageMapTohoku(props) {
-  const { imageWidth, imageUrl, imageMap } = props
+  const {
+    imageWidth,
+    imageUrl,
+    imageMap,
+    renderTooltipContent = () => {}
+  } = props
   const { width } = useWindowSize()
   const { areas } = useImageMapResponsive(imageMap.areas, imageWidth)
   const [hoveredArea, setHoveredArea] = useState(null)
@@ -24,6 +29,7 @@ export default function ImageMapTohoku(props) {
       return styles.tooltipDefault
     }
   }
+
   return (
     <div style={{ position: 'relative' }}>
       <ImageMapper
@@ -43,24 +49,7 @@ export default function ImageMapTohoku(props) {
           className={styles.tooltip + ' ' + getToolTip()}
           style={{ ...getTipPosition(hoveredArea) }}
         >
-          <a className={styles.tooltipContent} href={hoveredArea.info.link}>
-            <div>
-              <div className={styles.tooltipImageWrapper}>
-                {hoveredArea.info.cornerName ? 
-                <h5>{hoveredArea.info.cornerName}</h5>
-                :
-                <img
-                style={{ width: '75px' }}
-                className='maker-logo'
-                src={hoveredArea.info.logoUrl}
-                />
-                }
-              </div>
-
-              <h5>{hoveredArea.info.heading}</h5>
-              <div className={styles.link}>動画コーナーへ→</div>
-            </div>
-          </a>
+          {renderTooltipContent()}
         </div>
       )}
     </div>
