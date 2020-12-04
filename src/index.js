@@ -14,7 +14,7 @@ export default function ImageMapTohoku(props) {
     imageWidth,
     imageUrl,
     imageMap,
-    renderTooltipContent = () => {}
+    renderTooltipContent = ({}) => {}
   } = props
   const { width } = useWindowSize()
   const { areas } = useImageMapResponsive(imageMap.areas, imageWidth)
@@ -49,7 +49,7 @@ export default function ImageMapTohoku(props) {
           className={styles.tooltip + ' ' + getToolTip()}
           style={{ ...getTipPosition(hoveredArea) }}
         >
-          {renderTooltipContent()}
+          {renderTooltipContent(hoveredArea)}
         </div>
       )}
     </div>
